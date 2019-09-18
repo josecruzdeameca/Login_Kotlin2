@@ -1,5 +1,6 @@
 package jose.cruz.login_kotlin2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,8 +21,12 @@ class MainActivity : AppCompatActivity() {
             if (user.equals("") or pass.equals("")){
                 mensajito("Datos vacíos", Toast.LENGTH_LONG)
             } else {
-                if (user.equals("jose") or pass.equals("123")){
-                    mensajito("Bienvenido")
+                if (user.equals("jose") and pass.equals("123")){
+                    //mensajito("Bienvenido")
+                    val intento = Intent(this, segunda::class.java)
+                    intento.putExtra("nomre", "jose")
+                    startActivity(intento)
+
                 } else {
                     mensajito("No te conozco")
                 }
